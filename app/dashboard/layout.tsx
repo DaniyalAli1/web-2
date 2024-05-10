@@ -8,6 +8,7 @@ import { currentUser } from '@clerk/nextjs/server';
 
 const DashboardLayout = ({ children}: {children: React.ReactNode}) => {
   const {user} = useUser();
+  console.log("currentuser", user)
 
   return(
     <div>
@@ -17,12 +18,4 @@ const DashboardLayout = ({ children}: {children: React.ReactNode}) => {
   )
 }
 
-async function Page() {
-  const user = await currentUser();
-
-  if (!user) return <div>Not signed in</div>;
-
-  return <div>
-    console({user?.username}) </div>;
-}
 export default DashboardLayout
